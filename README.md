@@ -51,3 +51,66 @@ Total Runtime: 5 seconds
 Total Wait Time across all jobs with optimized Solution: 4 seconds
 Total Wait Time across all jobs with non-optimized Solution: 7 seconds
 ```
+
+## Project Structure
+```
+.
+├── main.go
+├── go.mod
+├── go.sum
+└── scheduler
+    ├── job.go
+    ├── scheduler.go
+    └── worker.go
+```
+
+## Files
+- main.go — handles user interaction and program startup
+- scheduler.go — contains the scheduling logic, worker tracking, job sorting, and statistics
+- worker.go — defines worker behavior and concurrent job execution
+- job.go — defines job data and job status types
+
+
+## Technologies Used
+- Go
+- Goroutines
+- Channels
+- govaluate
+
+## Scheduling Strategy
+This scheduler uses a shortest-job-first style optimization by sorting jobs in ascending order of duration before assigning them to workers.  
+
+The goal is to reduce the total wait time across all jobs compared to a non-optimized first-come, first-served assignment strategy.
+
+## Skills Demonstrated
+- Concurrency in Go
+- Goroutines and channels
+- Scheduling and worker-pool design
+- Data structures and state tracking
+- CLI program design
+- Performance-oriented thinking
+## Possible Future Improvements
+- Support for more complex mathematical expressions
+- Better input validation and error handling
+- Live status dashboard for workers and jobs
+- Additional scheduling algorithms for comparison
+- Unit tests for scheduler behavior
+
+## Running the Project
+1. Clone the Repository:
+```
+git clone https://github.com/quintuscarlson/go-worker-pool-scheduler.git
+```
+
+2. Move into the project folder:
+```
+cd go-worker-pool-scheduler
+```
+
+3. Run the program:
+```
+go run main.go
+```
+
+## Notes
+This project was built as a systems/concurrency-focused scheduling simulation to demonstrate how worker pools and job prioritization can improve performance in Go applications.
